@@ -44,11 +44,11 @@ Getting starting with Kafka
      ** list of the topics availble
      bin/kafka-topics.sh --list --zookeeper localhost:2181
 
-## 4)Instatiate a producer 
+## 4) Instatiate a producer 
    
      bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 
-## 5)Instantiate a consumer 
+## 5) Instantiate a consumer 
   
      bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic mytopic
   
