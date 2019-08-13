@@ -21,35 +21,41 @@ Getting starting with Kafka
     
     ### Setiing up a kafka cluster with a single zookeeper server in a single kafka broker (zookeeper instance and broker :- main components
     
-    1) zookeeper needs configuration file to know how zookeeper should behave once started 
+## 1) Starting Zookaaeper
+      (zookeeper needs configuration file to know how zookeeper should behave once started )
+      
       bin/zookeeper-server-start.sh config/zookeeper.properties
-        now waiting there to processes to connect to it...
-        chcek $ telnet localhost 2181 ---> stat
+      
+      now waiting there to processes to connect to it...
+      
+      check $ telnet localhost 2181 ---> stat
         
-     2) starting a broker 
+## 2) Starting a broker 
+
      bin/kafka-server-start.sh config/server.properties
      
-     3) bin/kafka-topics.sh 
+## 3) Creating a topic
      
-      bin/kafka-topics.sh --create --topic my_topic --zookeeper localhost:2181 --replication-factor 1 --partitions 1
-      we are specifying zookeeper servers because there could b emultiple zokeeper serviers managing there own clusters
-      It is the zookeeper server who assinging broker to be responsible for the topic (index file and log files are created)
+     bin/kafka-topics.sh --create --topic my_topic --zookeeper localhost:2181 --replication-factor 1 --partitions 1
       
-      
-      ** list of the topics availble
-      bin/kafka-topics.sh --list --zookeeper localhost:2181
-4)Instatiate a producer 
-  bin/kafka-console-producer.sh 
-  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
+     we are specifying zookeeper servers because there could b emultiple zokeeper serviers managing there own clusters
+     It is the zookeeper server who assinging broker to be responsible for the topic (index file and log files are created)
+            
+     ** list of the topics availble
+     bin/kafka-topics.sh --list --zookeeper localhost:2181
 
+## 4)Instatiate a producer 
+   
+     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 
-5)Instantiate a consumer 
-  bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic mytopic
+## 5)Instantiate a consumer 
   
-  *** to start multiple brokers change the broker.id and listerners in property file of broker (server.properties)
+     bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic mytopic
+  
+   * to start multiple brokers change the broker.id and listerners in property file of broker (server.properties)
       and log.dirs --> where kafka stores all the messages received
       
- *** zookeeper.connect (zookeeper.properties)  where the broker can find the zookeeper to connect to 
+   * zookeeper.connect (zookeeper.properties)  where the broker can find the zookeeper to connect to 
  
  
  Messages trasnmitted to and from kafa known as records ( key(anything), value(anything), timestamp(timestamp format)) --> size 1 MB
