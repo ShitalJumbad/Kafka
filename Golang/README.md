@@ -1,7 +1,7 @@
 ## Implementing a Kafka producer consumer using Golang
 sarama-cluster, a balanced consumer implementation built on top the existing sarama client library by Shopify
 
-First do :- go get github.com/Shopify/sarama
+First Install using :-  go get github.com/Shopify/sarama
 
 1) bin/zookeeper-server-start.sh config/zookeeper.properties 
 2) bin/kafka-server-start.sh config/server.properties 
