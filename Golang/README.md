@@ -3,9 +3,9 @@ sarama-cluster, a balanced consumer implementation built on top the existing sar
 
 First Install using :-  go get github.com/Shopify/sarama
 
-1) bin/zookeeper-server-start.sh config/zookeeper.properties 
-2) bin/kafka-server-start.sh config/server.properties 
-3) bin/kafka-topics.sh --create --topic newest --zookeeper localhost:2181 --replication-factor 1 --partitions 1
+1) bin/zookeeper-server-start config/zookeeper.properties 
+2) bin/kafka-server-start config/server.properties 
+3) bin/kafka-topics --create --topic newest --zookeeper localhost:2181 --replication-factor 1 --partitions 1
 4) go run consumer.go
 5) go run producer.go
 
